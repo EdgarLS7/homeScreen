@@ -16,11 +16,12 @@ class ContactCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        
         //-----------------------------
-        // Card Tab
+        // Card Tab flecha de la tarjeta
         //-----------------------------
         Align(
-          heightFactor: .9,
+          heightFactor: 0.9,
           alignment: Alignment.centerLeft,
           child: Container(
             height: 30,
@@ -31,19 +32,24 @@ class ContactCard extends StatelessWidget {
                 top: Radius.circular(10),
               ),
             ),
-            child: const Icon(
-              Icons.add,
-              color: Colors.white,
+            child: const Padding(
+              padding: EdgeInsets.only(top: 0.1),
+              child: Icon(
+                Icons.arrow_upward_outlined,
+                color: Colors.black,
+                size: 23,
+              ),
             ),
           ),
         ),
+       
         //-----------------------------
-        // Card Body
+        // Card Body 
         //-----------------------------
         Expanded(
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: borderColor,
               borderRadius: const BorderRadius.only(
@@ -51,55 +57,46 @@ class ContactCard extends StatelessWidget {
                   bottomRight: Radius.circular(20),
                   topRight: Radius.circular(20),),
             ),
+            
             //-----------------------------
-            // Card Body
+            // Card Body (Datos) 
             //-----------------------------
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  
                   //---------------------------
-                  // Name and Role
+                  // Nombre
                   //---------------------------
                   Row(
                     children: [
                       const  Icon(
-                        Icons.person_outlined,
+                        Icons.person_outline_sharp,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
-                      Flexible(
-                        child: Text.rich(
-                          TextSpan(
-                            text: contact.name,
-                            children: [
-                              TextSpan(
-                                text: '\n${contact.role}',
-                                style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5,),
-                              )
-                            ],
-                          ),
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500,),
+                      Text(contact.name, 
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500
                         ),
-                      ),
+                      )
                     ],
                   ),
+                  
                   //---------------------------
-                  // Address
+                  // TEXTO KUDO
                   //---------------------------
                   Row(
                     children: [
                       const Icon(
-                        Icons.home_outlined,
+                        Icons.mail_outline_outlined,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
@@ -167,14 +164,5 @@ class ContactCard extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-class SuperHeroCard extends StatelessWidget {
-  const SuperHeroCard({Key?  key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

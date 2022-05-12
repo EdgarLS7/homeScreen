@@ -43,7 +43,6 @@ class _ContactListPageState extends State<ContactListPage> {
       body: PerspectiveListView(
         visualizedItems: _visibleItems,
         itemExtent: _itemExtent,
-        initialIndex: 7,
         enableBackItemsShadow: true,
         backItemsShadowColor: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.all(10),
@@ -136,18 +135,20 @@ class _ContactListPageState extends State<ContactListPage> {
                         ' Item Extent',
                         style: TextStyle(),
                       ),
-                      Slider(
-                        value: _itemExtent!,
-                        min: 270,
-                        max: MediaQuery.of(context).size.height * .8,
-                        label: '$_itemExtent',
-                        activeColor: Colors.deepPurple[200],
-                        inactiveColor: Colors.deepPurple[400],
-                        onChanged: (value) {
-                          setState(() {
-                            _itemExtent = value;
-                          });
-                        },
+                      Expanded(
+                        child: Slider(
+                          value: _itemExtent!,
+                          min: 270,
+                          max: MediaQuery.of(context).size.height * .8,
+                          label: '$_itemExtent',
+                          activeColor: Colors.deepPurple[200],
+                          inactiveColor: Colors.deepPurple[400],
+                          onChanged: (value) {
+                            setState(() {
+                              _itemExtent = value;
+                            });
+                          },
+                        ),
                       )
                     ],
                   ),
