@@ -66,6 +66,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
       final height = constraints.maxHeight;
       return Stack(
         children: [
+          
           //---------------------------------------
           // Perspective Items List
           //---------------------------------------
@@ -73,11 +74,12 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
             padding: widget.padding,
             child: _PerspectiveItems(
                 generatedItems: widget.visualizedItems! - 1,
-                currentIndex: _currentIndex,
+                currentIndex: _currentIndex!,
                 heightItem: widget.itemExtent,
                 pagePercent: _pagePercent,
                 children: widget.children,),
           ),
+          
           //---------------------------------------
           // Back Items Shadow
           //---------------------------------------
@@ -97,6 +99,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
                 ),
               ),
             ),
+          
           //---------------------------------------
           // Void Page View
           //---------------------------------------
@@ -114,6 +117,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
               return const SizedBox();
             },
           ),
+          
           //---------------------------------------
           // On Tap Item Area
           //---------------------------------------
@@ -144,7 +148,7 @@ class _PerspectiveItems extends StatelessWidget {
   }) : super(key: key);
 
   final int generatedItems;
-  final int? currentIndex;
+  final int currentIndex;
   final double? heightItem;
   final double? pagePercent;
   final List<Widget> children;
@@ -156,6 +160,7 @@ class _PerspectiveItems extends StatelessWidget {
       return Stack(
         fit: StackFit.expand,
         children: [
+          
           //---------------------------------
           // Static Last Item
           //---------------------------------
@@ -165,11 +170,12 @@ class _PerspectiveItems extends StatelessWidget {
                   endScale: .5,
                   child: children[currentIndex! - generatedItems],
                 ) else const SizedBox(),
+          
           //----------------------------------
           // Perspective Items
           //----------------------------------
           for (int index = 0; index < generatedItems; index++)
-            (currentIndex! > ((generatedItems - 2) - index))
+            (currentIndex > ((generatedItems - 2) - index))
                 ? _TransformedItem(
                     heightItem: heightItem,
                     factorChange: pagePercent,
@@ -180,9 +186,10 @@ class _PerspectiveItems extends StatelessWidget {
                     endTranslateY:
                         (height - heightItem!) * (index / generatedItems),
                     child: children[
-                        currentIndex! - (((generatedItems - 2) - index) + 1)],
+                        currentIndex - (((generatedItems - 2) - index) + 1)],
                   )
                 : const SizedBox(),
+          
           //---------------------------------
           // Bottom Hide Item
           //---------------------------------

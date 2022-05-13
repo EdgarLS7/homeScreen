@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:template_kudos_view/models/contact.dart';
 
-class ContactCard extends StatelessWidget {
-  const ContactCard({
+class Cards extends StatelessWidget {
+  const Cards({
     Key? key,
     required this.borderColor,
     required this.contact,
   }) : super(key: key);
 
   final Color borderColor;
-  final Contact contact;
+  final KudosJ contact;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        
         //-----------------------------
         // Card Tab flecha de la tarjeta
         //-----------------------------
@@ -42,9 +41,9 @@ class ContactCard extends StatelessWidget {
             ),
           ),
         ),
-       
+
         //-----------------------------
-        // Card Body 
+        // Card Body
         //-----------------------------
         Expanded(
           child: Container(
@@ -53,13 +52,14 @@ class ContactCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: borderColor,
               borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  topRight: Radius.circular(20),),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
             ),
-            
+
             //-----------------------------
-            // Card Body (Datos) 
+            // Card Body (Datos)
             //-----------------------------
             child: Container(
               decoration: BoxDecoration(
@@ -70,90 +70,60 @@ class ContactCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  
                   //---------------------------
-                  // Nombre
+                  // NOMBRE
                   //---------------------------
                   Row(
                     children: [
-                      const  Icon(
+                      const Icon(
                         Icons.person_outline_sharp,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
-                      Text(contact.name, 
+                      Text(
+                        contact.name,
                         style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500
-                        ),
+                            fontSize: 30, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
-                  
+
+                  const SizedBox(height: 70,),
+
                   //---------------------------
                   // TEXTO KUDO
                   //---------------------------
+                  Expanded(
+                    child: Text(
+                      contact.kudo,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 45,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+
+                  
+
+                  //---------------------------
+                  // IMAGE
+                  //---------------------------
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const Icon(
-                        Icons.mail_outline_outlined,
+                        Icons.image_outlined,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        contact.address,
+                        contact.image,
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold,
                         ),
-                      )
-                    ],
-                  ),
-                  //---------------------------
-                  // Phone Number
-                  //---------------------------
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.phone_outlined,
-                        size: 40,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        contact.phone,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold,),
-                      )
-                    ],
-                  ),
-                  //---------------------------
-                  // eMail
-                  //---------------------------
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.email_outlined,
-                        size: 40,
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            contact.email,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.deepPurple,
-                            ),
-                          ),
-                          Text(
-                            contact.website,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.deepPurple,
-                            ),
-                          ),
-                        ],
                       )
                     ],
                   ),

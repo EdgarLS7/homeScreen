@@ -1,129 +1,84 @@
-class Contact {
-  const Contact(
+class KudosJ {
+  const KudosJ(
     this.name,
-    this.role,
-    this.address,
-    this.phone,
-    this.email,
-    this.website,
+    this.kudo,
+    this.image,
   );
 
   final String name;
-  final String role;
-  final String address;
-  final String phone;
-  final String email;
-  final String website;
+  final String kudo;
+  final String image;
 
   static const contacts = [
-    Contact(
+    KudosJ(
       'Bette Gracey',
-      'Biostatistician IV',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por traer gorrito',
+      'Aqui va la imagen xd',
     ),
     
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por ayudarme con mis tareas',
+      'Aqui va la imagen xd',
     ),
 
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por regalarme una paleta',
+      'Aqui va la imagen xd',
     ),
 
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por ser hijo del lechero',
+      'Aqui va la imagen xd',
     ),
 
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por invitarme una torta de la beltran',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por no valer verga',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por limpiar mi espacio de trabajo',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por ayudarme a escribir por que no se',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por lograr terminar algo',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por bañarse todos los dias',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por poner buena musica',
+      'Aqui va la imagen xd',
     ),
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por desvelarse conmigo',
+      'Aqui va la imagen xd',
     ),
 
-    Contact(
+    KudosJ(
       'Armenta Ross',
-      'Programador',
-      'Fracc. Jardines de Santa Fe',
-      '6673099582',
-      'armenta@gmail.com',
-      'ARoos.edu',
+      'Por tener mucho dinero',
+      'Aqui va la imagen xd',
     ),
     
   ];

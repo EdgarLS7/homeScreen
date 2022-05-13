@@ -17,8 +17,8 @@ class _ContactListPageState extends State<ContactListPage> {
 
   @override
   void initState() {
-    _visibleItems = 8;
-    _itemExtent = 270.0;
+    _visibleItems = 5;
+    _itemExtent = 463.77;
     super.initState();
   }
 
@@ -45,119 +45,20 @@ class _ContactListPageState extends State<ContactListPage> {
         itemExtent: _itemExtent,
         enableBackItemsShadow: true,
         backItemsShadowColor: Theme.of(context).scaffoldBackgroundColor,
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(
+          left: 10,
+          right: 10,
+          bottom: 45,
+        ),
         onTapFrontItem: (value) {},
-        children: List.generate(Contact.contacts.length, (index) {
+        children: List.generate(KudosJ.contacts.length, (index) {
           final borderColor = Colors.accents[index % Colors.accents.length];
-          final contact = Contact.contacts[index];
-          return ContactCard(
+          final contact = KudosJ.contacts[index];
+          return Cards( 
             borderColor: borderColor,
             contact: contact,
           );
         }),
-      ),
-      //---------------------------------------
-      // Drawer
-      //---------------------------------------
-      drawer: Drawer(
-        child: Material(
-          textStyle: const TextStyle(color: Colors.white, fontSize: 16),
-          child: Container(
-            color: const Color(0xFF5B4382),
-            padding: const EdgeInsets.all(20),
-            child: SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //----------------------------
-                  // Drawer title
-                  //----------------------------
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.settings_outlined,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      Text(
-                        ' Settings',
-                        style: TextStyle(
-                          fontSize: 26,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Divider(height: 40),
-                  //----------------------------
-                  // Visible Items Control
-                  //----------------------------
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.visibility_rounded,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      const Text(
-                        ' Visible items',
-                        style: TextStyle(),
-                      ),
-                      Expanded(
-                        child: Slider(
-                          value: _visibleItems!.toDouble(),
-                          min: 1,
-                          max: 15,
-                          divisions: 15,
-                          label: '$_visibleItems',
-                          activeColor: Colors.deepPurple[200],
-                          inactiveColor: Colors.deepPurple[400],
-                          onChanged: (value) {
-                            setState(() {
-                              _visibleItems = value.toInt();
-                            });
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                  const Divider(height: 40),
-                  //----------------------------
-                  // Item Extent Control
-                  //----------------------------
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.widgets,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      const Text(
-                        ' Item Extent',
-                        style: TextStyle(),
-                      ),
-                      Expanded(
-                        child: Slider(
-                          value: _itemExtent!,
-                          min: 270,
-                          max: MediaQuery.of(context).size.height * .8,
-                          label: '$_itemExtent',
-                          activeColor: Colors.deepPurple[200],
-                          inactiveColor: Colors.deepPurple[400],
-                          onChanged: (value) {
-                            setState(() {
-                              _itemExtent = value;
-                            });
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                  const Divider(height: 40),
-                ],
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
