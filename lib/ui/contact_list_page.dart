@@ -52,7 +52,16 @@ class _ContactListPageState extends State<ContactListPage> {
         ),
         onTapFrontItem: (value) {},
         children: List.generate(KudosJ.contacts.length, (index) {
-          final borderColor = Colors.accents[index % Colors.accents.length];
+          const borderColor = BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.red,
+                Colors.blue
+              ]
+            )
+          );
           final contact = KudosJ.contacts[index];
           return Cards( 
             borderColor: borderColor,

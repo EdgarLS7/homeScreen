@@ -8,7 +8,7 @@ class Cards extends StatelessWidget {
     required this.contact,
   }) : super(key: key);
 
-  final Color borderColor;
+  final BoxDecoration borderColor;
   final KudosJ contact;
 
   @override
@@ -52,7 +52,7 @@ class Cards extends StatelessWidget {
             decoration: BoxDecoration(
               color: borderColor,
               borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
@@ -88,7 +88,7 @@ class Cards extends StatelessWidget {
                     ],
                   ),
 
-                  const SizedBox(height: 70,),
+                  const SizedBox(height: 60,),
 
                   //---------------------------
                   // TEXTO KUDO
@@ -105,25 +105,19 @@ class Cards extends StatelessWidget {
                     ),
                   ),
 
-                  
-
                   //---------------------------
                   // IMAGE
                   //---------------------------
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Icon(
-                        Icons.image_outlined,
-                        size: 40,
-                      ),
                       const SizedBox(width: 10),
-                      Text(
-                        contact.image,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      FadeInImage(
+                        width: 140,
+                        height: 140,
+                        placeholder: const NetworkImage('https://via.placeholder.com/300x400'),
+                        image: contact.image,
+                        fit: BoxFit.cover,
                       )
                     ],
                   ),
